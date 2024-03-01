@@ -9,10 +9,14 @@ public class Main {
         
         int number = getInputNumber();
         
-        int sum = sumOfNumbers(number);
+        //int sum = sumOfNumbers(number);
         
-        System.out.println(sum);
-
+        System.out.println(sumOfNumbers(number));
+        System.out.println(gaussianSumOfNumbers(number));
+        getSumOfNumbersRuntime(number);
+        getGaussianRuntime(number);
+        System.out.println("This is the runtime of getSumOfNumbers: " + getSumOfNumbersRuntime(number) + " millisenconds");
+        System.out.println("This is the runtime of getGaussianRuntime: " + getGaussianRuntime(number) + " milliseconds");
     }
     
     // do this one and the lab is complete. really.
@@ -46,11 +50,30 @@ public class Main {
     
     
     // for Extra Credit
-    int gaussianSumOfNumbers(int n) {
-        return 0;
+    public static int gaussianSumOfNumbers(int n) {
+
+
+        return  n * (n+1)/2;
     }
    
     // for Extra extra credit - compare the methods and show which one is faster
     // google "how to time some java code"
     // use "System.currentTimeMillis()" to ask the system what time it is.
+    public static long getGaussianRuntime(int n) {
+        long startTime = System.currentTimeMillis();
+        // Code
+        gaussianSumOfNumbers(n);
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+    public static long getSumOfNumbersRuntime(int n){
+        long startTime = System.currentTimeMillis();
+        // Code
+        sumOfNumbers(n);
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+
+
+
 }
